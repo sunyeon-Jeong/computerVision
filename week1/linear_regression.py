@@ -84,3 +84,25 @@ from sklearn.metrics import r2_score
 result = r2_score(y_test, y_pred)
 
 print(result)
+
+
+''' 그래프 그리기(matplotlib) '''
+# - plt.scatter(x축에 반영될 데이터, y축에 반영될 실제값)
+# - plt.plot(x축에 반영될 데이터, y축에 반영될 예측값)
+
+# 훈련데이터셋 시각화(red)
+plt.scatter(X_train, y_train, color='red')
+# 기본그래프
+plt.plot(X_train, regressor.predict(X_train), color='blue')
+plt.title('Salary vs Experience (Train set)')
+plt.xlabel('Years of Experience')
+plt.ylabel('Salary')
+plt.show()
+
+# 테스트데이터셋에 대한 시각화(blue)
+plt.scatter(X_test, y_test, color = 'blue')
+plt.plot(X_test, regressor.predict(X_test), color = 'red')
+plt.title('Salary vs Experience (Test set)')
+plt.xlabel('Years of Experience')
+plt.ylabel('Salary')
+plt.show()
